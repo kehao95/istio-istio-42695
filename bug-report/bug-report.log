@@ -1,0 +1,216 @@
+2023-01-07T20:58:47.275632Z	info	STARTING kubectl config current-context
+2023-01-07T20:58:47.598216Z	info	COMPLETED kubectl config current-context
+2023-01-07T20:58:47.598288Z	info	
+Target cluster context: kind-kind
+
+
+2023-01-07T20:58:47.598397Z	info	Running with the following config: 
+
+istio-namespace: istio-system
+full-secrets: false
+timeout (mins): 30
+include: {  }
+exclude: { Namespaces: kube-node-lease,kube-public,kube-system,local-path-storage }
+end-time: 2023-01-07 15:58:47.275451 -0500 EST
+
+
+
+2023-01-07T20:58:47.600275Z	info	
+Cluster endpoint: https://127.0.0.1:63874
+
+2023-01-07T20:58:47.641533Z	info	CLI version:
+version.BuildInfo{Version:"1.16.1", GitRevision:"f6d7bf648e571a6a523210d97bde8b489250354b-dirty", GolangVersion:"go1.19.4", BuildStatus:"Clean", GitTag:"1.16.1"}
+
+The following Istio control plane revisions/versions were found in the cluster:
+Revision default:
+&version.MeshInfo{
+    {
+        Component: "pilot",
+        Info:      version.BuildInfo{Version:"1.16.1", GitRevision:"f6d7bf648e571a6a523210d97bde8b489250354b", GolangVersion:"", BuildStatus:"Clean", GitTag:"1.16.1"},
+    },
+}
+
+The following proxy revisions/versions were found in the cluster:
+Revision default: Versions {1.16.1}
+
+2023-01-07T20:58:47.641809Z	info	Cluster resource tree:
+
+default
+  podinfo
+    podinfo-cbf97c866-hb9gt
+      podinfod
+istio-system
+  istio-ingressgateway
+    istio-ingressgateway-6785fcd48-h5c5c
+      istio-proxy
+  istiod
+    istiod-65448977c9-zlvhs
+      discovery
+
+
+
+2023-01-07T20:58:47.641829Z	info	
+
+Fetching proxy logs for the following containers:
+
+default/podinfo/podinfo-cbf97c866-hb9gt/podinfod
+istio-system/istio-ingressgateway/istio-ingressgateway-6785fcd48-h5c5c/istio-proxy
+istio-system/istiod/istiod-65448977c9-zlvhs/discovery
+
+2023-01-07T20:58:47.641836Z	info	
+Fetching Istio control plane information from cluster.
+
+
+2023-01-07T20:58:47.641842Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetK8sResources
+2023-01-07T20:58:47.641861Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetCRs
+2023-01-07T20:58:47.641866Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetEvents
+2023-01-07T20:58:47.641870Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetClusterInfo
+2023-01-07T20:58:47.641875Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetNodeInfo
+2023-01-07T20:58:47.641879Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetSecrets
+2023-01-07T20:58:47.641884Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetDescribePods
+2023-01-07T20:58:47.641892Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetCoredumps
+2023-01-07T20:58:47.641903Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetNetstat
+2023-01-07T20:58:47.641909Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetProxyInfo
+2023-01-07T20:58:47.641912Z	info	Waiting on logs istio-ingressgateway-6785fcd48-h5c5c
+2023-01-07T20:58:47.641919Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetIstiodInfo
+2023-01-07T20:58:47.641924Z	info	Waiting on logs istiod-65448977c9-zlvhs
+2023-01-07T20:58:47.641935Z	info	Getting logs for istio-system/istiod-65448977c9-zlvhs/discovery...
+2023-01-07T20:58:47.641957Z	info	STARTING PodExec istio-system/istio-ingressgateway-6785fcd48-h5c5c/istio-proxy:find /var/lib/istio -name core.*
+2023-01-07T20:58:47.641984Z	info	Getting logs for istio-system/istio-ingressgateway-6785fcd48-h5c5c/istio-proxy...
+2023-01-07T20:58:47.642006Z	info	STARTING kubectl describe nodes
+2023-01-07T20:58:47.642035Z	info	STARTING kubectl get secrets --all-namespaces
+2023-01-07T20:58:47.642079Z	info	STARTING kubectl get --all-namespaces all,namespaces,jobs,ingresses,endpoints,customresourcedefinitions,configmaps,events,mutatingwebhookconfigurations,validatingwebhookconfigurations -o yaml
+2023-01-07T20:58:47.642107Z	info	STARTING PodExec istio-system/istio-ingressgateway-6785fcd48-h5c5c/istio-proxy:netstat -natpw
+2023-01-07T20:58:47.642188Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:certs
+2023-01-07T20:58:47.643087Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/adsz
+2023-01-07T20:58:47.643400Z	info	STARTING kubectl get events --all-namespaces -o wide
+2023-01-07T20:58:47.644226Z	info	STARTING PodLogs istio-system/istiod-65448977c9-zlvhs/discovery
+2023-01-07T20:58:47.646305Z	info	STARTING PodLogs istio-system/istio-ingressgateway-6785fcd48-h5c5c/istio-proxy
+2023-01-07T20:58:47.660164Z	info	COMPLETED PodLogs istio-system/istio-ingressgateway-6785fcd48-h5c5c/istio-proxy
+2023-01-07T20:58:47.660276Z	info	Done with logs istio-ingressgateway-6785fcd48-h5c5c
+2023-01-07T20:58:47.664117Z	info	COMPLETED PodLogs istio-system/istiod-65448977c9-zlvhs/discovery
+2023-01-07T20:58:47.664798Z	info	Done with logs istiod-65448977c9-zlvhs
+2023-01-07T20:58:47.700553Z	info	COMPLETED kubectl get secrets --all-namespaces
+2023-01-07T20:58:47.700900Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetSecrets
+2023-01-07T20:58:47.706721Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:certs
+2023-01-07T20:58:47.712870Z	info	COMPLETED kubectl get events --all-namespaces -o wide
+2023-01-07T20:58:47.713093Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetEvents
+2023-01-07T20:58:47.721508Z	info	COMPLETED kubectl describe nodes
+2023-01-07T20:58:47.721742Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetNodeInfo
+2023-01-07T20:58:47.725652Z	info	COMPLETED PodExec istio-system/istio-ingressgateway-6785fcd48-h5c5c/istio-proxy:find /var/lib/istio -name core.*
+2023-01-07T20:58:47.725682Z	info	istio-system/istio-ingressgateway-6785fcd48-h5c5c/istio-proxy has 0 coredumps
+2023-01-07T20:58:47.725687Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetCoredumps
+2023-01-07T20:58:47.742478Z	info	STARTING kubectl get customresourcedefinitions --no-headers
+2023-01-07T20:58:47.757054Z	info	COMPLETED PodExec istio-system/istio-ingressgateway-6785fcd48-h5c5c/istio-proxy:netstat -natpw
+2023-01-07T20:58:47.757532Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetNetstat
+2023-01-07T20:58:47.786250Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/adsz
+2023-01-07T20:58:47.801053Z	info	COMPLETED kubectl get customresourcedefinitions --no-headers
+2023-01-07T20:58:47.842605Z	info	STARTING kubectl describe pods -n istio-system
+2023-01-07T20:58:47.896877Z	info	COMPLETED kubectl describe pods -n istio-system
+2023-01-07T20:58:47.897193Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetDescribePods
+2023-01-07T20:58:47.902560Z	info	COMPLETED kubectl get --all-namespaces all,namespaces,jobs,ingresses,endpoints,customresourcedefinitions,configmaps,events,mutatingwebhookconfigurations,validatingwebhookconfigurations -o yaml
+2023-01-07T20:58:47.903275Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetK8sResources
+2023-01-07T20:58:47.943070Z	info	STARTING kubectl config current-context
+2023-01-07T20:58:47.974197Z	info	COMPLETED kubectl config current-context
+2023-01-07T20:58:48.042985Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:clusters
+2023-01-07T20:58:48.062141Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:clusters
+2023-01-07T20:58:48.143001Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/syncz
+2023-01-07T20:58:48.237526Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/syncz
+2023-01-07T20:58:48.242560Z	info	STARTING kubectl get --all-namespaces authorizationpolicies.security.istio.io,destinationrules.networking.istio.io,envoyfilters.networking.istio.io,gateways.networking.istio.io,istiooperators.install.istio.io,peerauthentications.security.istio.io,proxyconfigs.networking.istio.io,requestauthentications.security.istio.io,serviceentries.networking.istio.io,sidecars.networking.istio.io,telemetries.telemetry.istio.io,virtualservices.networking.istio.io,wasmplugins.extensions.istio.io,workloadentries.networking.istio.io,workloadgroups.networking.istio.io -o yaml
+2023-01-07T20:58:48.343051Z	info	STARTING kubectl version
+2023-01-07T20:58:48.385395Z	info	COMPLETED kubectl version
+2023-01-07T20:58:48.386410Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetClusterInfo
+2023-01-07T20:58:48.406630Z	info	COMPLETED kubectl get --all-namespaces authorizationpolicies.security.istio.io,destinationrules.networking.istio.io,envoyfilters.networking.istio.io,gateways.networking.istio.io,istiooperators.install.istio.io,peerauthentications.security.istio.io,proxyconfigs.networking.istio.io,requestauthentications.security.istio.io,serviceentries.networking.istio.io,sidecars.networking.istio.io,telemetries.telemetry.istio.io,virtualservices.networking.istio.io,wasmplugins.extensions.istio.io,workloadentries.networking.istio.io,workloadgroups.networking.istio.io -o yaml
+2023-01-07T20:58:48.406928Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetCRs
+2023-01-07T20:58:48.442986Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:config_dump?include_eds
+2023-01-07T20:58:48.465550Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:config_dump?include_eds
+2023-01-07T20:58:48.542580Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/registryz
+2023-01-07T20:58:48.629860Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/registryz
+2023-01-07T20:58:48.642950Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:listeners
+2023-01-07T20:58:48.670393Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:listeners
+2023-01-07T20:58:48.743062Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/endpointz
+2023-01-07T20:58:48.842094Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:memory
+2023-01-07T20:58:48.842583Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/endpointz
+2023-01-07T20:58:48.871443Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:memory
+2023-01-07T20:58:48.942504Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/instancesz
+2023-01-07T20:58:49.036613Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/instancesz
+2023-01-07T20:58:49.042635Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:server_info
+2023-01-07T20:58:49.066239Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:server_info
+2023-01-07T20:58:49.142137Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/endpointShardz
+2023-01-07T20:58:49.237737Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/endpointShardz
+2023-01-07T20:58:49.242511Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:stats/prometheus
+2023-01-07T20:58:49.268045Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:stats/prometheus
+2023-01-07T20:58:49.342345Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/configz
+2023-01-07T20:58:49.439941Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/configz
+2023-01-07T20:58:49.441985Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:runtime
+2023-01-07T20:58:49.476120Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-6785fcd48-h5c5c:runtime
+2023-01-07T20:58:49.477175Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetProxyInfo
+2023-01-07T20:58:49.543035Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/cachez
+2023-01-07T20:58:49.635029Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/cachez
+2023-01-07T20:58:49.642826Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/resourcesz
+2023-01-07T20:58:49.734614Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/resourcesz
+2023-01-07T20:58:49.742861Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/authorizationz
+2023-01-07T20:58:49.835240Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/authorizationz
+2023-01-07T20:58:49.842010Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/push_status
+2023-01-07T20:58:49.936883Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/push_status
+2023-01-07T20:58:49.942312Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/inject
+2023-01-07T20:58:50.041034Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/inject
+2023-01-07T20:58:50.042108Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/mesh
+2023-01-07T20:58:50.129108Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/mesh
+2023-01-07T20:58:50.142712Z	info	STARTING PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/networkz
+2023-01-07T20:58:50.232985Z	info	COMPLETED PodExec istio-system/istiod-65448977c9-zlvhs/discovery:pilot-discovery request GET debug/networkz
+2023-01-07T20:58:50.236839Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetIstiodInfo
+2023-01-07T20:58:50.236893Z	info	Running istio analyze on all namespaces and report as below:
+2023-01-07T20:58:50.397457Z	info	Executed analyzers:
+2023-01-07T20:58:50.397525Z	info		: annotations.K8sAnalyzer
+2023-01-07T20:58:50.397537Z	info		: auth.AuthorizationPoliciesAnalyzer
+2023-01-07T20:58:50.397546Z	info		: deployment.MultiServiceAnalyzer
+2023-01-07T20:58:50.397556Z	info		: applicationUID.Analyzer
+2023-01-07T20:58:50.397565Z	info		: deprecation.DeprecationAnalyzer
+2023-01-07T20:58:50.397574Z	info		: gateway.IngressGatewayPortAnalyzer
+2023-01-07T20:58:50.397583Z	info		: gateway.CertificateAnalyzer
+2023-01-07T20:58:50.397591Z	info		: gateway.SecretAnalyzer
+2023-01-07T20:58:50.397600Z	info		: gateway.ConflictingGatewayAnalyzer
+2023-01-07T20:58:50.397608Z	info		: injection.Analyzer
+2023-01-07T20:58:50.397617Z	info		: injection.ImageAnalyzer
+2023-01-07T20:58:50.397625Z	info		: injection.ImageAutoAnalyzer
+2023-01-07T20:58:50.397634Z	info		: meshnetworks.MeshNetworksAnalyzer
+2023-01-07T20:58:50.397642Z	info		: service.PortNameAnalyzer
+2023-01-07T20:58:50.397651Z	info		: sidecar.DefaultSelectorAnalyzer
+2023-01-07T20:58:50.397659Z	info		: sidecar.SelectorAnalyzer
+2023-01-07T20:58:50.397668Z	info		: virtualservice.ConflictingMeshGatewayHostsAnalyzer
+2023-01-07T20:58:50.397676Z	info		: virtualservice.DestinationHostAnalyzer
+2023-01-07T20:58:50.397685Z	info		: virtualservice.DestinationRuleAnalyzer
+2023-01-07T20:58:50.397693Z	info		: virtualservice.GatewayAnalyzer
+2023-01-07T20:58:50.397702Z	info		: virtualservice.JWTClaimRouteAnalyzer
+2023-01-07T20:58:50.397710Z	info		: virtualservice.RegexAnalyzer
+2023-01-07T20:58:50.397719Z	info		: destinationrule.CaCertificateAnalyzer
+2023-01-07T20:58:50.397727Z	info		: serviceentry.Analyzer
+2023-01-07T20:58:50.397736Z	info		: webhook.Analyzer
+2023-01-07T20:58:50.397744Z	info		: envoyfilter.EnvoyPatchAnalyzer
+2023-01-07T20:58:50.397753Z	info		: schema.ValidationAnalyzer.WasmPlugin
+2023-01-07T20:58:50.397764Z	info		: schema.ValidationAnalyzer.MeshConfig
+2023-01-07T20:58:50.397773Z	info		: schema.ValidationAnalyzer.MeshNetworks
+2023-01-07T20:58:50.397781Z	info		: schema.ValidationAnalyzer.DestinationRule
+2023-01-07T20:58:50.397790Z	info		: schema.ValidationAnalyzer.EnvoyFilter
+2023-01-07T20:58:50.397799Z	info		: schema.ValidationAnalyzer.Gateway
+2023-01-07T20:58:50.397842Z	info		: schema.ValidationAnalyzer.ServiceEntry
+2023-01-07T20:58:50.397852Z	info		: schema.ValidationAnalyzer.Sidecar
+2023-01-07T20:58:50.397860Z	info		: schema.ValidationAnalyzer.VirtualService
+2023-01-07T20:58:50.397869Z	info		: schema.ValidationAnalyzer.WorkloadEntry
+2023-01-07T20:58:50.397877Z	info		: schema.ValidationAnalyzer.WorkloadGroup
+2023-01-07T20:58:50.397885Z	info		: schema.ValidationAnalyzer.ProxyConfig
+2023-01-07T20:58:50.397894Z	info		: schema.ValidationAnalyzer.AuthorizationPolicy
+2023-01-07T20:58:50.397902Z	info		: schema.ValidationAnalyzer.PeerAuthentication
+2023-01-07T20:58:50.397911Z	info		: schema.ValidationAnalyzer.RequestAuthentication
+2023-01-07T20:58:50.397919Z	info		: schema.ValidationAnalyzer.Telemetry
+2023-01-07T20:58:50.397955Z	info	
+Analysis Report:
+
+2023-01-07T20:58:50.397975Z	info	Error [IST0128] (DestinationRule default/httpbin.heapanalytics.dev) DestinationRule default/httpbin.heapanalytics.dev in namespace default has TLS mode set to SIMPLE but no caCertificates are set to validate server identity for host: httpbin.heapanalytics.dev
+Error [IST0128] (DestinationRule default/httpbin.org) DestinationRule default/httpbin.org in namespace default has TLS mode set to SIMPLE but no caCertificates are set to validate server identity for host: httpbin.org
+Info [IST0102] (Namespace default) The namespace is not enabled for Istio injection. Run 'kubectl label namespace default istio-injection=enabled' to enable it, or 'kubectl label namespace default istio-injection=disabled' to explicitly mark it as not needing injection.
+2023-01-07T20:58:50.397986Z	info	
+
+2023-01-07T20:58:50.399386Z	info	Creating an archive at /Users/kehao95/Project/opensource/istio-issue/bug-report.tar.gz.
+

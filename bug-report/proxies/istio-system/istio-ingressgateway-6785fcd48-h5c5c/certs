@@ -1,0 +1,324 @@
+{
+ "certificates": [
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [],
+   "cert_chain": []
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [],
+   "cert_chain": []
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f7c0d9721bfc5a8f5eac17330976bee5",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2023-01-07T20:52:06Z",
+     "expiration_time": "2033-01-04T20:52:06Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "25a6f253a3845ae0fee970d40f17dc80",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2023-01-07T20:50:22Z",
+     "expiration_time": "2023-01-08T20:52:22Z"
+    }
+   ]
+  }
+ ]
+}

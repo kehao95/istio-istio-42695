@@ -1,0 +1,14 @@
+CLI version:
+version.BuildInfo{Version:"1.16.1", GitRevision:"f6d7bf648e571a6a523210d97bde8b489250354b-dirty", GolangVersion:"go1.19.4", BuildStatus:"Clean", GitTag:"1.16.1"}
+
+The following Istio control plane revisions/versions were found in the cluster:
+Revision default:
+&version.MeshInfo{
+    {
+        Component: "pilot",
+        Info:      version.BuildInfo{Version:"1.16.1", GitRevision:"f6d7bf648e571a6a523210d97bde8b489250354b", GolangVersion:"", BuildStatus:"Clean", GitTag:"1.16.1"},
+    },
+}
+
+The following proxy revisions/versions were found in the cluster:
+Revision default: Versions {1.16.1}

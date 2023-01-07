@@ -1,0 +1,98 @@
+Name:               kind-control-plane
+Roles:              control-plane
+Labels:             beta.kubernetes.io/arch=arm64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=arm64
+                    kubernetes.io/hostname=kind-control-plane
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/control-plane=
+                    node.kubernetes.io/exclude-from-external-load-balancers=
+Annotations:        kubeadm.alpha.kubernetes.io/cri-socket: unix:///run/containerd/containerd.sock
+                    node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Sat, 07 Jan 2023 15:51:27 -0500
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  kind-control-plane
+  AcquireTime:     <unset>
+  RenewTime:       Sat, 07 Jan 2023 15:58:38 -0500
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Sat, 07 Jan 2023 15:57:37 -0500   Sat, 07 Jan 2023 15:51:25 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Sat, 07 Jan 2023 15:57:37 -0500   Sat, 07 Jan 2023 15:51:25 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Sat, 07 Jan 2023 15:57:37 -0500   Sat, 07 Jan 2023 15:51:25 -0500   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Sat, 07 Jan 2023 15:57:37 -0500   Sat, 07 Jan 2023 15:51:50 -0500   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:  172.18.0.2
+  Hostname:    kind-control-plane
+Capacity:
+  cpu:                10
+  ephemeral-storage:  478569848Ki
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  hugepages-32Mi:     0
+  hugepages-64Ki:     0
+  memory:             56729620Ki
+  pods:               110
+Allocatable:
+  cpu:                10
+  ephemeral-storage:  478569848Ki
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  hugepages-32Mi:     0
+  hugepages-64Ki:     0
+  memory:             56729620Ki
+  pods:               110
+System Info:
+  Machine ID:                 be5b9005509d4da78f76eac392bffe01
+  System UUID:                be5b9005509d4da78f76eac392bffe01
+  Boot ID:                    002b2ded-bb0a-4de6-93b3-9e98dad89b08
+  Kernel Version:             5.15.49-linuxkit
+  OS Image:                   Ubuntu 22.04.1 LTS
+  Operating System:           linux
+  Architecture:               arm64
+  Container Runtime Version:  containerd://1.6.9
+  Kubelet Version:            v1.25.3
+  Kube-Proxy Version:         v1.25.3
+PodCIDR:                      10.244.0.0/24
+PodCIDRs:                     10.244.0.0/24
+ProviderID:                   kind://docker/kind/kind-control-plane
+Non-terminated Pods:          (12 in total)
+  Namespace                   Name                                          CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                                          ------------  ----------  ---------------  -------------  ---
+  default                     podinfo-cbf97c866-hb9gt                       100m (1%)     2 (20%)     64Mi (0%)        512Mi (0%)     7m3s
+  istio-system                istio-ingressgateway-6785fcd48-h5c5c          100m (1%)     2 (20%)     128Mi (0%)       1Gi (1%)       6m39s
+  istio-system                istiod-65448977c9-zlvhs                       500m (5%)     0 (0%)      2Gi (3%)         0 (0%)         7m3s
+  kube-system                 coredns-565d847f94-g6757                      100m (1%)     0 (0%)      70Mi (0%)        170Mi (0%)     7m3s
+  kube-system                 coredns-565d847f94-sncrw                      100m (1%)     0 (0%)      70Mi (0%)        170Mi (0%)     7m3s
+  kube-system                 etcd-kind-control-plane                       100m (1%)     0 (0%)      100Mi (0%)       0 (0%)         7m17s
+  kube-system                 kindnet-cvk25                                 100m (1%)     100m (1%)   50Mi (0%)        50Mi (0%)      7m4s
+  kube-system                 kube-apiserver-kind-control-plane             250m (2%)     0 (0%)      0 (0%)           0 (0%)         7m17s
+  kube-system                 kube-controller-manager-kind-control-plane    200m (2%)     0 (0%)      0 (0%)           0 (0%)         7m17s
+  kube-system                 kube-proxy-nn56q                              0 (0%)        0 (0%)      0 (0%)           0 (0%)         7m4s
+  kube-system                 kube-scheduler-kind-control-plane             100m (1%)     0 (0%)      0 (0%)           0 (0%)         7m17s
+  local-path-storage          local-path-provisioner-684f458cdd-b8nct       0 (0%)        0 (0%)      0 (0%)           0 (0%)         7m3s
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests     Limits
+  --------           --------     ------
+  cpu                1650m (16%)  4100m (41%)
+  memory             2530Mi (4%)  1926Mi (3%)
+  ephemeral-storage  0 (0%)       0 (0%)
+  hugepages-1Gi      0 (0%)       0 (0%)
+  hugepages-2Mi      0 (0%)       0 (0%)
+  hugepages-32Mi     0 (0%)       0 (0%)
+  hugepages-64Ki     0 (0%)       0 (0%)
+Events:
+  Type    Reason                   Age    From             Message
+  ----    ------                   ----   ----             -------
+  Normal  Starting                 7m3s   kube-proxy       
+  Normal  Starting                 7m17s  kubelet          Starting kubelet.
+  Normal  NodeAllocatableEnforced  7m17s  kubelet          Updated Node Allocatable limit across pods
+  Normal  NodeHasSufficientMemory  7m17s  kubelet          Node kind-control-plane status is now: NodeHasSufficientMemory
+  Normal  NodeHasNoDiskPressure    7m17s  kubelet          Node kind-control-plane status is now: NodeHasNoDiskPressure
+  Normal  NodeHasSufficientPID     7m17s  kubelet          Node kind-control-plane status is now: NodeHasSufficientPID
+  Normal  RegisteredNode           7m5s   node-controller  Node kind-control-plane event: Registered Node kind-control-plane in Controller
+  Normal  NodeReady                6m57s  kubelet          Node kind-control-plane status is now: NodeReady

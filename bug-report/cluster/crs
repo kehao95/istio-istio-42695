@@ -1,0 +1,1320 @@
+apiVersion: v1
+items:
+- apiVersion: networking.istio.io/v1beta1
+  kind: DestinationRule
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1beta1","kind":"DestinationRule","metadata":{"annotations":{},"name":"httpbin.heapanalytics.dev","namespace":"default"},"spec":{"host":"httpbin.heapanalytics.dev","trafficPolicy":{"tls":{"mode":"SIMPLE","sni":"httpbin.heapanalytics.dev"}}}}
+    creationTimestamp: "2023-01-07T20:52:31Z"
+    generation: 1
+    name: httpbin.heapanalytics.dev
+    namespace: default
+    resourceVersion: "736"
+    uid: 74ffe34d-e565-4073-b2a8-ed47a979be05
+  spec:
+    host: httpbin.heapanalytics.dev
+    trafficPolicy:
+      tls:
+        mode: SIMPLE
+        sni: httpbin.heapanalytics.dev
+- apiVersion: networking.istio.io/v1beta1
+  kind: DestinationRule
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1beta1","kind":"DestinationRule","metadata":{"annotations":{},"name":"httpbin.org","namespace":"default"},"spec":{"host":"httpbin.org","trafficPolicy":{"tls":{"mode":"SIMPLE","sni":"httpbin.org"}}}}
+    creationTimestamp: "2023-01-07T20:52:31Z"
+    generation: 1
+    name: httpbin.org
+    namespace: default
+    resourceVersion: "737"
+    uid: c2445ba7-beb2-48a3-a55e-96665897b2a8
+  spec:
+    host: httpbin.org
+    trafficPolicy:
+      tls:
+        mode: SIMPLE
+        sni: httpbin.org
+- apiVersion: networking.istio.io/v1alpha3
+  kind: EnvoyFilter
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"EnvoyFilter","metadata":{"annotations":{},"labels":{"install.operator.istio.io/owning-resource-namespace":"istio-system","istio.io/rev":"default","operator.istio.io/component":"Pilot","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.16.1"},"name":"stats-filter-1.13","namespace":"istio-system"},"spec":{"configPatches":[{"applyTo":"HTTP_FILTER","match":{"context":"SIDECAR_OUTBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.13.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_outbound"}}}}}}},{"applyTo":"HTTP_FILTER","match":{"context":"SIDECAR_INBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.13.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\",\n  \"disable_host_header_fallback\": true\n}\n"},"root_id":"stats_inbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_inbound"}}}}}}},{"applyTo":"HTTP_FILTER","match":{"context":"GATEWAY","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.13.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\",\n  \"disable_host_header_fallback\": true\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_outbound"}}}}}}}],"priority":-1}}
+    creationTimestamp: "2023-01-07T20:51:42Z"
+    generation: 1
+    labels:
+      install.operator.istio.io/owning-resource-namespace: istio-system
+      istio.io/rev: default
+      operator.istio.io/component: Pilot
+      operator.istio.io/managed: Reconcile
+      operator.istio.io/version: 1.16.1
+    name: stats-filter-1.13
+    namespace: istio-system
+    resourceVersion: "379"
+    uid: bbd89f46-5be6-49db-a3c5-71a87387e62e
+  spec:
+    configPatches:
+    - applyTo: HTTP_FILTER
+      match:
+        context: SIDECAR_OUTBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.13.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_outbound
+    - applyTo: HTTP_FILTER
+      match:
+        context: SIDECAR_INBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.13.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio",
+                      "disable_host_header_fallback": true
+                    }
+                root_id: stats_inbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_inbound
+    - applyTo: HTTP_FILTER
+      match:
+        context: GATEWAY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.13.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio",
+                      "disable_host_header_fallback": true
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_outbound
+    priority: -1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: EnvoyFilter
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"EnvoyFilter","metadata":{"annotations":{},"labels":{"install.operator.istio.io/owning-resource-namespace":"istio-system","istio.io/rev":"default","operator.istio.io/component":"Pilot","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.16.1"},"name":"stats-filter-1.14","namespace":"istio-system"},"spec":{"configPatches":[{"applyTo":"HTTP_FILTER","match":{"context":"SIDECAR_OUTBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.14.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_outbound"}}}}}}},{"applyTo":"HTTP_FILTER","match":{"context":"SIDECAR_INBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.14.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\",\n  \"disable_host_header_fallback\": true\n}\n"},"root_id":"stats_inbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_inbound"}}}}}}},{"applyTo":"HTTP_FILTER","match":{"context":"GATEWAY","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.14.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\",\n  \"disable_host_header_fallback\": true\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_outbound"}}}}}}}],"priority":-1}}
+    creationTimestamp: "2023-01-07T20:51:42Z"
+    generation: 1
+    labels:
+      install.operator.istio.io/owning-resource-namespace: istio-system
+      istio.io/rev: default
+      operator.istio.io/component: Pilot
+      operator.istio.io/managed: Reconcile
+      operator.istio.io/version: 1.16.1
+    name: stats-filter-1.14
+    namespace: istio-system
+    resourceVersion: "380"
+    uid: 37041970-be8b-41ae-9201-bcafb2382901
+  spec:
+    configPatches:
+    - applyTo: HTTP_FILTER
+      match:
+        context: SIDECAR_OUTBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.14.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_outbound
+    - applyTo: HTTP_FILTER
+      match:
+        context: SIDECAR_INBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.14.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio",
+                      "disable_host_header_fallback": true
+                    }
+                root_id: stats_inbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_inbound
+    - applyTo: HTTP_FILTER
+      match:
+        context: GATEWAY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.14.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio",
+                      "disable_host_header_fallback": true
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_outbound
+    priority: -1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: EnvoyFilter
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"EnvoyFilter","metadata":{"annotations":{},"labels":{"install.operator.istio.io/owning-resource-namespace":"istio-system","istio.io/rev":"default","operator.istio.io/component":"Pilot","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.16.1"},"name":"stats-filter-1.15","namespace":"istio-system"},"spec":{"configPatches":[{"applyTo":"HTTP_FILTER","match":{"context":"SIDECAR_OUTBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.15.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_outbound"}}}}}}},{"applyTo":"HTTP_FILTER","match":{"context":"SIDECAR_INBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.15.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\",\n  \"disable_host_header_fallback\": true\n}\n"},"root_id":"stats_inbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_inbound"}}}}}}},{"applyTo":"HTTP_FILTER","match":{"context":"GATEWAY","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.15.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\",\n  \"disable_host_header_fallback\": true\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_outbound"}}}}}}}],"priority":-1}}
+    creationTimestamp: "2023-01-07T20:51:42Z"
+    generation: 1
+    labels:
+      install.operator.istio.io/owning-resource-namespace: istio-system
+      istio.io/rev: default
+      operator.istio.io/component: Pilot
+      operator.istio.io/managed: Reconcile
+      operator.istio.io/version: 1.16.1
+    name: stats-filter-1.15
+    namespace: istio-system
+    resourceVersion: "381"
+    uid: 9f65a543-73eb-4871-bd1b-d8efe4aa739d
+  spec:
+    configPatches:
+    - applyTo: HTTP_FILTER
+      match:
+        context: SIDECAR_OUTBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.15.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_outbound
+    - applyTo: HTTP_FILTER
+      match:
+        context: SIDECAR_INBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.15.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio",
+                      "disable_host_header_fallback": true
+                    }
+                root_id: stats_inbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_inbound
+    - applyTo: HTTP_FILTER
+      match:
+        context: GATEWAY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.15.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio",
+                      "disable_host_header_fallback": true
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_outbound
+    priority: -1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: EnvoyFilter
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"EnvoyFilter","metadata":{"annotations":{},"labels":{"install.operator.istio.io/owning-resource-namespace":"istio-system","istio.io/rev":"default","operator.istio.io/component":"Pilot","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.16.1"},"name":"stats-filter-1.16","namespace":"istio-system"},"spec":{"configPatches":[{"applyTo":"HTTP_FILTER","match":{"context":"SIDECAR_OUTBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.16.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_outbound"}}}}}}},{"applyTo":"HTTP_FILTER","match":{"context":"SIDECAR_INBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.16.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\",\n  \"disable_host_header_fallback\": true\n}\n"},"root_id":"stats_inbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_inbound"}}}}}}},{"applyTo":"HTTP_FILTER","match":{"context":"GATEWAY","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.http_connection_manager","subFilter":{"name":"envoy.filters.http.router"}}}},"proxy":{"proxyVersion":"^1\\.16.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\",\n  \"disable_host_header_fallback\": true\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"stats_outbound"}}}}}}}],"priority":-1}}
+    creationTimestamp: "2023-01-07T20:51:42Z"
+    generation: 1
+    labels:
+      install.operator.istio.io/owning-resource-namespace: istio-system
+      istio.io/rev: default
+      operator.istio.io/component: Pilot
+      operator.istio.io/managed: Reconcile
+      operator.istio.io/version: 1.16.1
+    name: stats-filter-1.16
+    namespace: istio-system
+    resourceVersion: "382"
+    uid: bffb3455-e533-47dd-9a95-9d8951ef80b6
+  spec:
+    configPatches:
+    - applyTo: HTTP_FILTER
+      match:
+        context: SIDECAR_OUTBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.16.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_outbound
+    - applyTo: HTTP_FILTER
+      match:
+        context: SIDECAR_INBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.16.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio",
+                      "disable_host_header_fallback": true
+                    }
+                root_id: stats_inbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_inbound
+    - applyTo: HTTP_FILTER
+      match:
+        context: GATEWAY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.router
+        proxy:
+          proxyVersion: ^1\.16.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio",
+                      "disable_host_header_fallback": true
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: stats_outbound
+    priority: -1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: EnvoyFilter
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"EnvoyFilter","metadata":{"annotations":{},"labels":{"install.operator.istio.io/owning-resource-namespace":"istio-system","istio.io/rev":"default","operator.istio.io/component":"Pilot","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.16.1"},"name":"tcp-stats-filter-1.13","namespace":"istio-system"},"spec":{"configPatches":[{"applyTo":"NETWORK_FILTER","match":{"context":"SIDECAR_INBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.13.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_inbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_inbound"}}}}}}},{"applyTo":"NETWORK_FILTER","match":{"context":"SIDECAR_OUTBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.13.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_outbound"}}}}}}},{"applyTo":"NETWORK_FILTER","match":{"context":"GATEWAY","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.13.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_outbound"}}}}}}}],"priority":-1}}
+    creationTimestamp: "2023-01-07T20:51:42Z"
+    generation: 1
+    labels:
+      install.operator.istio.io/owning-resource-namespace: istio-system
+      istio.io/rev: default
+      operator.istio.io/component: Pilot
+      operator.istio.io/managed: Reconcile
+      operator.istio.io/version: 1.16.1
+    name: tcp-stats-filter-1.13
+    namespace: istio-system
+    resourceVersion: "383"
+    uid: fe00965b-84ae-4460-8e74-e2ba7c8ebdfa
+  spec:
+    configPatches:
+    - applyTo: NETWORK_FILTER
+      match:
+        context: SIDECAR_INBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.13.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_inbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_inbound
+    - applyTo: NETWORK_FILTER
+      match:
+        context: SIDECAR_OUTBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.13.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_outbound
+    - applyTo: NETWORK_FILTER
+      match:
+        context: GATEWAY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.13.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_outbound
+    priority: -1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: EnvoyFilter
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"EnvoyFilter","metadata":{"annotations":{},"labels":{"install.operator.istio.io/owning-resource-namespace":"istio-system","istio.io/rev":"default","operator.istio.io/component":"Pilot","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.16.1"},"name":"tcp-stats-filter-1.14","namespace":"istio-system"},"spec":{"configPatches":[{"applyTo":"NETWORK_FILTER","match":{"context":"SIDECAR_INBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.14.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_inbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_inbound"}}}}}}},{"applyTo":"NETWORK_FILTER","match":{"context":"SIDECAR_OUTBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.14.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_outbound"}}}}}}},{"applyTo":"NETWORK_FILTER","match":{"context":"GATEWAY","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.14.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_outbound"}}}}}}}],"priority":-1}}
+    creationTimestamp: "2023-01-07T20:51:42Z"
+    generation: 1
+    labels:
+      install.operator.istio.io/owning-resource-namespace: istio-system
+      istio.io/rev: default
+      operator.istio.io/component: Pilot
+      operator.istio.io/managed: Reconcile
+      operator.istio.io/version: 1.16.1
+    name: tcp-stats-filter-1.14
+    namespace: istio-system
+    resourceVersion: "384"
+    uid: 098aa2f3-3725-4862-bcd7-c5e1fba4ea41
+  spec:
+    configPatches:
+    - applyTo: NETWORK_FILTER
+      match:
+        context: SIDECAR_INBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.14.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_inbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_inbound
+    - applyTo: NETWORK_FILTER
+      match:
+        context: SIDECAR_OUTBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.14.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_outbound
+    - applyTo: NETWORK_FILTER
+      match:
+        context: GATEWAY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.14.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_outbound
+    priority: -1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: EnvoyFilter
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"EnvoyFilter","metadata":{"annotations":{},"labels":{"install.operator.istio.io/owning-resource-namespace":"istio-system","istio.io/rev":"default","operator.istio.io/component":"Pilot","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.16.1"},"name":"tcp-stats-filter-1.15","namespace":"istio-system"},"spec":{"configPatches":[{"applyTo":"NETWORK_FILTER","match":{"context":"SIDECAR_INBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.15.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_inbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_inbound"}}}}}}},{"applyTo":"NETWORK_FILTER","match":{"context":"SIDECAR_OUTBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.15.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_outbound"}}}}}}},{"applyTo":"NETWORK_FILTER","match":{"context":"GATEWAY","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.15.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_outbound"}}}}}}}],"priority":-1}}
+    creationTimestamp: "2023-01-07T20:51:42Z"
+    generation: 1
+    labels:
+      install.operator.istio.io/owning-resource-namespace: istio-system
+      istio.io/rev: default
+      operator.istio.io/component: Pilot
+      operator.istio.io/managed: Reconcile
+      operator.istio.io/version: 1.16.1
+    name: tcp-stats-filter-1.15
+    namespace: istio-system
+    resourceVersion: "385"
+    uid: 2ec39e30-0d75-45ae-9c8f-3418f3799bf1
+  spec:
+    configPatches:
+    - applyTo: NETWORK_FILTER
+      match:
+        context: SIDECAR_INBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.15.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_inbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_inbound
+    - applyTo: NETWORK_FILTER
+      match:
+        context: SIDECAR_OUTBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.15.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_outbound
+    - applyTo: NETWORK_FILTER
+      match:
+        context: GATEWAY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.15.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_outbound
+    priority: -1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: EnvoyFilter
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"EnvoyFilter","metadata":{"annotations":{},"labels":{"install.operator.istio.io/owning-resource-namespace":"istio-system","istio.io/rev":"default","operator.istio.io/component":"Pilot","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.16.1"},"name":"tcp-stats-filter-1.16","namespace":"istio-system"},"spec":{"configPatches":[{"applyTo":"NETWORK_FILTER","match":{"context":"SIDECAR_INBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.16.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_inbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_inbound"}}}}}}},{"applyTo":"NETWORK_FILTER","match":{"context":"SIDECAR_OUTBOUND","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.16.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_outbound"}}}}}}},{"applyTo":"NETWORK_FILTER","match":{"context":"GATEWAY","listener":{"filterChain":{"filter":{"name":"envoy.filters.network.tcp_proxy"}}},"proxy":{"proxyVersion":"^1\\.16.*"}},"patch":{"operation":"INSERT_BEFORE","value":{"name":"istio.stats","typed_config":{"@type":"type.googleapis.com/udpa.type.v1.TypedStruct","type_url":"type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm","value":{"config":{"configuration":{"@type":"type.googleapis.com/google.protobuf.StringValue","value":"{\n  \"debug\": \"false\",\n  \"stat_prefix\": \"istio\"\n}\n"},"root_id":"stats_outbound","vm_config":{"code":{"local":{"inline_string":"envoy.wasm.stats"}},"runtime":"envoy.wasm.runtime.null","vm_id":"tcp_stats_outbound"}}}}}}}],"priority":-1}}
+    creationTimestamp: "2023-01-07T20:51:42Z"
+    generation: 1
+    labels:
+      install.operator.istio.io/owning-resource-namespace: istio-system
+      istio.io/rev: default
+      operator.istio.io/component: Pilot
+      operator.istio.io/managed: Reconcile
+      operator.istio.io/version: 1.16.1
+    name: tcp-stats-filter-1.16
+    namespace: istio-system
+    resourceVersion: "386"
+    uid: 652bf84b-c5ea-4205-8d37-41f69313731a
+  spec:
+    configPatches:
+    - applyTo: NETWORK_FILTER
+      match:
+        context: SIDECAR_INBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.16.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_inbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_inbound
+    - applyTo: NETWORK_FILTER
+      match:
+        context: SIDECAR_OUTBOUND
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.16.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_outbound
+    - applyTo: NETWORK_FILTER
+      match:
+        context: GATEWAY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.tcp_proxy
+        proxy:
+          proxyVersion: ^1\.16.*
+      patch:
+        operation: INSERT_BEFORE
+        value:
+          name: istio.stats
+          typed_config:
+            '@type': type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url: type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+            value:
+              config:
+                configuration:
+                  '@type': type.googleapis.com/google.protobuf.StringValue
+                  value: |
+                    {
+                      "debug": "false",
+                      "stat_prefix": "istio"
+                    }
+                root_id: stats_outbound
+                vm_config:
+                  code:
+                    local:
+                      inline_string: envoy.wasm.stats
+                  runtime: envoy.wasm.runtime.null
+                  vm_id: tcp_stats_outbound
+    priority: -1
+- apiVersion: networking.istio.io/v1beta1
+  kind: Gateway
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1beta1","kind":"Gateway","metadata":{"annotations":{},"name":"cluster-gateway","namespace":"istio-system"},"spec":{"selector":{"istio":"ingressgateway"},"servers":[{"hosts":["*.localhost"],"port":{"name":"http","number":80,"protocol":"HTTP"}}]}}
+    creationTimestamp: "2023-01-07T20:52:31Z"
+    generation: 1
+    name: cluster-gateway
+    namespace: istio-system
+    resourceVersion: "738"
+    uid: b0ce24aa-08ae-409e-8376-b3f5775ff920
+  spec:
+    selector:
+      istio: ingressgateway
+    servers:
+    - hosts:
+      - '*.localhost'
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
+- apiVersion: install.istio.io/v1alpha1
+  kind: IstioOperator
+  metadata:
+    annotations:
+      install.istio.io/ignoreReconcile: "true"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"install.istio.io/v1alpha1","kind":"IstioOperator","metadata":{"annotations":{"install.istio.io/ignoreReconcile":"true"},"creationTimestamp":null,"name":"installed-state","namespace":"istio-system"},"spec":{"components":{"base":{"enabled":true},"cni":{"enabled":false},"egressGateways":[{"enabled":false,"name":"istio-egressgateway"}],"ingressGateways":[{"enabled":true,"name":"istio-ingressgateway"}],"istiodRemote":{"enabled":false},"pilot":{"enabled":true}},"hub":"docker.io/istio","meshConfig":{"defaultConfig":{"proxyMetadata":{}},"enablePrometheusMerge":true},"profile":"default","tag":"1.16.1","values":{"base":{"enableCRDTemplates":false,"validationURL":""},"defaultRevision":"","gateways":{"istio-egressgateway":{"autoscaleEnabled":true,"env":{},"name":"istio-egressgateway","secretVolumes":[{"mountPath":"/etc/istio/egressgateway-certs","name":"egressgateway-certs","secretName":"istio-egressgateway-certs"},{"mountPath":"/etc/istio/egressgateway-ca-certs","name":"egressgateway-ca-certs","secretName":"istio-egressgateway-ca-certs"}],"type":"ClusterIP"},"istio-ingressgateway":{"autoscaleEnabled":true,"env":{},"name":"istio-ingressgateway","secretVolumes":[{"mountPath":"/etc/istio/ingressgateway-certs","name":"ingressgateway-certs","secretName":"istio-ingressgateway-certs"},{"mountPath":"/etc/istio/ingressgateway-ca-certs","name":"ingressgateway-ca-certs","secretName":"istio-ingressgateway-ca-certs"}],"type":"LoadBalancer"}},"global":{"configValidation":true,"defaultNodeSelector":{},"defaultPodDisruptionBudget":{"enabled":true},"defaultResources":{"requests":{"cpu":"10m"}},"imagePullPolicy":"","imagePullSecrets":[],"istioNamespace":"istio-system","istiod":{"enableAnalysis":false},"jwtPolicy":"third-party-jwt","logAsJson":false,"logging":{"level":"default:info"},"meshNetworks":{},"mountMtlsCerts":false,"multiCluster":{"clusterName":"","enabled":false},"network":"","omitSidecarInjectorConfigMap":false,"oneNamespace":false,"operatorManageWebhooks":false,"pilotCertProvider":"istiod","priorityClassName":"","proxy":{"autoInject":"enabled","clusterDomain":"cluster.local","componentLogLevel":"misc:error","enableCoreDump":false,"excludeIPRanges":"","excludeInboundPorts":"","excludeOutboundPorts":"","image":"proxyv2","includeIPRanges":"*","logLevel":"warning","privileged":false,"readinessFailureThreshold":30,"readinessInitialDelaySeconds":1,"readinessPeriodSeconds":2,"resources":{"limits":{"cpu":"2000m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}},"statusPort":15020,"tracer":"zipkin"},"proxy_init":{"image":"proxyv2","resources":{"limits":{"cpu":"2000m","memory":"1024Mi"},"requests":{"cpu":"10m","memory":"10Mi"}}},"sds":{"token":{"aud":"istio-ca"}},"sts":{"servicePort":0},"tracer":{"datadog":{},"lightstep":{},"stackdriver":{},"zipkin":{}},"useMCP":false},"istiodRemote":{"injectionURL":""},"pilot":{"autoscaleEnabled":true,"autoscaleMax":5,"autoscaleMin":1,"configMap":true,"cpu":{"targetAverageUtilization":80},"deploymentLabels":null,"enableProtocolSniffingForInbound":true,"enableProtocolSniffingForOutbound":true,"env":{},"image":"pilot","keepaliveMaxServerConnectionAge":"30m","nodeSelector":{},"podLabels":{},"replicaCount":1,"traceSampling":1},"telemetry":{"enabled":true,"v2":{"enabled":true,"metadataExchange":{"wasmEnabled":false},"prometheus":{"enabled":true,"wasmEnabled":false},"stackdriver":{"configOverride":{},"enabled":false,"logging":false,"monitoring":false,"topology":false}}}}}}
+    creationTimestamp: "2023-01-07T20:52:25Z"
+    generation: 1
+    name: installed-state
+    namespace: istio-system
+    resourceVersion: "711"
+    uid: f0ad4f0d-3189-4ba9-bc8e-6079792e06c9
+  spec:
+    components:
+      base:
+        enabled: true
+      cni:
+        enabled: false
+      egressGateways:
+      - enabled: false
+        name: istio-egressgateway
+      ingressGateways:
+      - enabled: true
+        name: istio-ingressgateway
+      istiodRemote:
+        enabled: false
+      pilot:
+        enabled: true
+    hub: docker.io/istio
+    meshConfig:
+      defaultConfig:
+        proxyMetadata: {}
+      enablePrometheusMerge: true
+    profile: default
+    tag: 1.16.1
+    values:
+      base:
+        enableCRDTemplates: false
+        validationURL: ""
+      defaultRevision: ""
+      gateways:
+        istio-egressgateway:
+          autoscaleEnabled: true
+          env: {}
+          name: istio-egressgateway
+          secretVolumes:
+          - mountPath: /etc/istio/egressgateway-certs
+            name: egressgateway-certs
+            secretName: istio-egressgateway-certs
+          - mountPath: /etc/istio/egressgateway-ca-certs
+            name: egressgateway-ca-certs
+            secretName: istio-egressgateway-ca-certs
+          type: ClusterIP
+        istio-ingressgateway:
+          autoscaleEnabled: true
+          env: {}
+          name: istio-ingressgateway
+          secretVolumes:
+          - mountPath: /etc/istio/ingressgateway-certs
+            name: ingressgateway-certs
+            secretName: istio-ingressgateway-certs
+          - mountPath: /etc/istio/ingressgateway-ca-certs
+            name: ingressgateway-ca-certs
+            secretName: istio-ingressgateway-ca-certs
+          type: LoadBalancer
+      global:
+        configValidation: true
+        defaultNodeSelector: {}
+        defaultPodDisruptionBudget:
+          enabled: true
+        defaultResources:
+          requests:
+            cpu: 10m
+        imagePullPolicy: ""
+        imagePullSecrets: []
+        istioNamespace: istio-system
+        istiod:
+          enableAnalysis: false
+        jwtPolicy: third-party-jwt
+        logAsJson: false
+        logging:
+          level: default:info
+        meshNetworks: {}
+        mountMtlsCerts: false
+        multiCluster:
+          clusterName: ""
+          enabled: false
+        network: ""
+        omitSidecarInjectorConfigMap: false
+        oneNamespace: false
+        operatorManageWebhooks: false
+        pilotCertProvider: istiod
+        priorityClassName: ""
+        proxy:
+          autoInject: enabled
+          clusterDomain: cluster.local
+          componentLogLevel: misc:error
+          enableCoreDump: false
+          excludeIPRanges: ""
+          excludeInboundPorts: ""
+          excludeOutboundPorts: ""
+          image: proxyv2
+          includeIPRanges: '*'
+          logLevel: warning
+          privileged: false
+          readinessFailureThreshold: 30
+          readinessInitialDelaySeconds: 1
+          readinessPeriodSeconds: 2
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 1024Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          statusPort: 15020
+          tracer: zipkin
+        proxy_init:
+          image: proxyv2
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 1024Mi
+            requests:
+              cpu: 10m
+              memory: 10Mi
+        sds:
+          token:
+            aud: istio-ca
+        sts:
+          servicePort: 0
+        tracer:
+          datadog: {}
+          lightstep: {}
+          stackdriver: {}
+          zipkin: {}
+        useMCP: false
+      istiodRemote:
+        injectionURL: ""
+      pilot:
+        autoscaleEnabled: true
+        autoscaleMax: 5
+        autoscaleMin: 1
+        configMap: true
+        cpu:
+          targetAverageUtilization: 80
+        deploymentLabels: null
+        enableProtocolSniffingForInbound: true
+        enableProtocolSniffingForOutbound: true
+        env: {}
+        image: pilot
+        keepaliveMaxServerConnectionAge: 30m
+        nodeSelector: {}
+        podLabels: {}
+        replicaCount: 1
+        traceSampling: 1
+      telemetry:
+        enabled: true
+        v2:
+          enabled: true
+          metadataExchange:
+            wasmEnabled: false
+          prometheus:
+            enabled: true
+            wasmEnabled: false
+          stackdriver:
+            configOverride: {}
+            enabled: false
+            logging: false
+            monitoring: false
+            topology: false
+- apiVersion: networking.istio.io/v1beta1
+  kind: ServiceEntry
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1beta1","kind":"ServiceEntry","metadata":{"annotations":{},"name":"httpbin.heapanalytics.dev","namespace":"default"},"spec":{"hosts":["httpbin.heapanalytics.dev"],"location":"MESH_EXTERNAL","ports":[{"name":"HTTPS","number":443,"protocol":"TLS"}],"resolution":"DNS"}}
+    creationTimestamp: "2023-01-07T20:52:31Z"
+    generation: 1
+    name: httpbin.heapanalytics.dev
+    namespace: default
+    resourceVersion: "739"
+    uid: 158351fc-9f5a-470a-98d1-23011075a69c
+  spec:
+    hosts:
+    - httpbin.heapanalytics.dev
+    location: MESH_EXTERNAL
+    ports:
+    - name: HTTPS
+      number: 443
+      protocol: TLS
+    resolution: DNS
+- apiVersion: networking.istio.io/v1beta1
+  kind: ServiceEntry
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1beta1","kind":"ServiceEntry","metadata":{"annotations":{},"name":"httpbin.org","namespace":"default"},"spec":{"hosts":["httpbin.org"],"location":"MESH_EXTERNAL","ports":[{"name":"HTTPS","number":443,"protocol":"TLS"}],"resolution":"DNS"}}
+    creationTimestamp: "2023-01-07T20:52:31Z"
+    generation: 1
+    name: httpbin.org
+    namespace: default
+    resourceVersion: "740"
+    uid: 4be332c6-611b-4c67-94e7-956937dfd0a0
+  spec:
+    hosts:
+    - httpbin.org
+    location: MESH_EXTERNAL
+    ports:
+    - name: HTTPS
+      number: 443
+      protocol: TLS
+    resolution: DNS
+- apiVersion: networking.istio.io/v1beta1
+  kind: VirtualService
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"VirtualService","metadata":{"annotations":{},"name":"httpbin.heapanalytics.dev","namespace":"default"},"spec":{"gateways":["istio-system/cluster-gateway","mesh"],"hosts":["httpbin-heap.localhost"],"http":[{"name":"heap-only","route":[{"destination":{"host":"httpbin.heapanalytics.dev","port":{"number":443}}}]}]}}
+    creationTimestamp: "2023-01-07T20:52:31Z"
+    generation: 1
+    name: httpbin.heapanalytics.dev
+    namespace: default
+    resourceVersion: "734"
+    uid: e7b54100-26f9-48ba-bdaf-7450df3017fa
+  spec:
+    gateways:
+    - istio-system/cluster-gateway
+    - mesh
+    hosts:
+    - httpbin-heap.localhost
+    http:
+    - name: heap-only
+      route:
+      - destination:
+          host: httpbin.heapanalytics.dev
+          port:
+            number: 443
+- apiVersion: networking.istio.io/v1beta1
+  kind: VirtualService
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"VirtualService","metadata":{"annotations":{},"name":"httpbin.org","namespace":"default"},"spec":{"gateways":["istio-system/cluster-gateway","mesh"],"hosts":["httpbin-org.localhost"],"http":[{"name":"heap-only","route":[{"destination":{"host":"httpbin.org","port":{"number":443}}}]}]}}
+    creationTimestamp: "2023-01-07T20:52:31Z"
+    generation: 1
+    name: httpbin.org
+    namespace: default
+    resourceVersion: "735"
+    uid: d6996d5a-f018-4933-aaf4-2eb999a6cec5
+  spec:
+    gateways:
+    - istio-system/cluster-gateway
+    - mesh
+    hosts:
+    - httpbin-org.localhost
+    http:
+    - name: heap-only
+      route:
+      - destination:
+          host: httpbin.org
+          port:
+            number: 443
+- apiVersion: networking.istio.io/v1beta1
+  kind: VirtualService
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"VirtualService","metadata":{"annotations":{},"name":"podinfo","namespace":"default"},"spec":{"gateways":["istio-system/cluster-gateway","mesh"],"hosts":["podinfo.localhost"],"http":[{"name":"podinfo","route":[{"destination":{"host":"podinfo","port":{"number":9898}}}]}]}}
+    creationTimestamp: "2023-01-07T20:52:31Z"
+    generation: 1
+    name: podinfo
+    namespace: default
+    resourceVersion: "733"
+    uid: 391a4ed5-a203-4808-b5be-b4d9a9798902
+  spec:
+    gateways:
+    - istio-system/cluster-gateway
+    - mesh
+    hosts:
+    - podinfo.localhost
+    http:
+    - name: podinfo
+      route:
+      - destination:
+          host: podinfo
+          port:
+            number: 9898
+kind: List
+metadata:
+  resourceVersion: ""

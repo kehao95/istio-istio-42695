@@ -20,9 +20,9 @@ kubectl port-forward -n istio-system svc/istio-ingressgateway 9000:80
 ## testing VirtualService & ExternalSerivce
 ```
 # brew install httpie
-http get localhost:9000/ Host:podinfo.localhost
-http get localhost:9000/ip Host:httpbin-org.localhost
-http get localhost:9000/anything Host:httpbin-heap.localhost
+http get localhost:9000/ Host:podinfo.localhost                # podinfo
+http get localhost:9000/ip Host:httpbin-org.localhost          # https://httpbin.org
+http get localhost:9000/anything Host:httpbin-heap.localhost   # https://httpbin.heapanalytics.dev
 ```
 
 

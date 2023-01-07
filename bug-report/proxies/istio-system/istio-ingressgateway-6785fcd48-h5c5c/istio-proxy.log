@@ -1,0 +1,77 @@
+2023-01-07T20:52:22.124800Z	info	FLAG: --concurrency="0"
+2023-01-07T20:52:22.124823Z	info	FLAG: --domain="istio-system.svc.cluster.local"
+2023-01-07T20:52:22.124826Z	info	FLAG: --help="false"
+2023-01-07T20:52:22.124827Z	info	FLAG: --log_as_json="false"
+2023-01-07T20:52:22.124828Z	info	FLAG: --log_caller=""
+2023-01-07T20:52:22.124829Z	info	FLAG: --log_output_level="default:info"
+2023-01-07T20:52:22.124831Z	info	FLAG: --log_rotate=""
+2023-01-07T20:52:22.124832Z	info	FLAG: --log_rotate_max_age="30"
+2023-01-07T20:52:22.124833Z	info	FLAG: --log_rotate_max_backups="1000"
+2023-01-07T20:52:22.124835Z	info	FLAG: --log_rotate_max_size="104857600"
+2023-01-07T20:52:22.124836Z	info	FLAG: --log_stacktrace_level="default:none"
+2023-01-07T20:52:22.124838Z	info	FLAG: --log_target="[stdout]"
+2023-01-07T20:52:22.124839Z	info	FLAG: --meshConfig="./etc/istio/config/mesh"
+2023-01-07T20:52:22.124841Z	info	FLAG: --outlierLogPath=""
+2023-01-07T20:52:22.124842Z	info	FLAG: --proxyComponentLogLevel="misc:error"
+2023-01-07T20:52:22.124843Z	info	FLAG: --proxyLogLevel="warning"
+2023-01-07T20:52:22.124844Z	info	FLAG: --serviceCluster="istio-proxy"
+2023-01-07T20:52:22.124845Z	info	FLAG: --stsPort="0"
+2023-01-07T20:52:22.124846Z	info	FLAG: --templateFile=""
+2023-01-07T20:52:22.124848Z	info	FLAG: --tokenManagerPlugin="GoogleTokenExchange"
+2023-01-07T20:52:22.124849Z	info	FLAG: --vklog="0"
+2023-01-07T20:52:22.124851Z	info	Version 1.16.1-f6d7bf648e571a6a523210d97bde8b489250354b-Clean
+2023-01-07T20:52:22.127428Z	info	Maximum file descriptors (ulimit -n): 1048576
+2023-01-07T20:52:22.127560Z	info	Proxy role	ips=[10.244.0.7] type=router id=istio-ingressgateway-6785fcd48-h5c5c.istio-system domain=istio-system.svc.cluster.local
+2023-01-07T20:52:22.127616Z	info	Apply mesh config from file defaultConfig:
+  discoveryAddress: istiod.istio-system.svc:15012
+  proxyMetadata: {}
+  tracing:
+    zipkin:
+      address: zipkin.istio-system:9411
+enablePrometheusMerge: true
+rootNamespace: istio-system
+trustDomain: cluster.local
+2023-01-07T20:52:22.129621Z	info	Effective config: binaryPath: /usr/local/bin/envoy
+configPath: ./etc/istio/proxy
+controlPlaneAuthPolicy: MUTUAL_TLS
+discoveryAddress: istiod.istio-system.svc:15012
+drainDuration: 45s
+parentShutdownDuration: 60s
+proxyAdminPort: 15000
+serviceCluster: istio-proxy
+statNameLength: 189
+statusPort: 15020
+terminationDrainDuration: 5s
+tracing:
+  zipkin:
+    address: zipkin.istio-system:9411
+
+2023-01-07T20:52:22.129639Z	info	JWT policy is third-party-jwt
+2023-01-07T20:52:22.129641Z	info	using credential fetcher of JWT type in cluster.local trust domain
+2023-01-07T20:52:22.230086Z	info	Workload SDS socket not found. Starting Istio SDS Server
+2023-01-07T20:52:22.230109Z	info	CA Endpoint istiod.istio-system.svc:15012, provider Citadel
+2023-01-07T20:52:22.230124Z	info	Using CA istiod.istio-system.svc:15012 cert with certs: var/run/secrets/istio/root-cert.pem
+2023-01-07T20:52:22.230114Z	info	Opening status port 15020
+2023-01-07T20:52:22.230222Z	info	citadelclient	Citadel client using custom root cert: var/run/secrets/istio/root-cert.pem
+2023-01-07T20:52:22.239337Z	info	ads	All caches have been synced up in 118.447083ms, marking server ready
+2023-01-07T20:52:22.239555Z	info	xdsproxy	Initializing with upstream address "istiod.istio-system.svc:15012" and cluster "Kubernetes"
+2023-01-07T20:52:22.240104Z	info	sds	Starting SDS grpc server
+2023-01-07T20:52:22.240345Z	info	starting Http service at 127.0.0.1:15004
+2023-01-07T20:52:22.240424Z	info	Pilot SAN: [istiod.istio-system.svc]
+2023-01-07T20:52:22.241242Z	info	Starting proxy agent
+2023-01-07T20:52:22.241286Z	info	starting
+2023-01-07T20:52:22.241305Z	info	Envoy command: [-c etc/istio/proxy/envoy-rev.json --drain-time-s 45 --drain-strategy immediate --parent-shutdown-time-s 60 --local-address-ip-version v4 --file-flush-interval-msec 1000 --disable-hot-restart --log-format %Y-%m-%dT%T.%fZ	%l	envoy %n	%v -l warning --component-log-level misc:error]
+2023-01-07T20:52:22.302808Z	info	cache	generated new workload certificate	latency=63.177667ms ttl=23h59m59.697198403s
+2023-01-07T20:52:22.302833Z	info	cache	Root cert has changed, start rotating root cert
+2023-01-07T20:52:22.302883Z	info	ads	XDS: Incremental Pushing:0 ConnectedEndpoints:0 Version:
+2023-01-07T20:52:22.302910Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.697091153s
+2023-01-07T20:52:22.311524Z	info	xdsproxy	connected to upstream XDS server: istiod.istio-system.svc:15012
+2023-01-07T20:52:22.322039Z	info	ads	ADS: new connection for node:istio-ingressgateway-6785fcd48-h5c5c.istio-system-1
+2023-01-07T20:52:22.322116Z	info	cache	returned workload certificate from cache	ttl=23h59m59.677887125s
+2023-01-07T20:52:22.322243Z	info	ads	ADS: new connection for node:istio-ingressgateway-6785fcd48-h5c5c.istio-system-2
+2023-01-07T20:52:22.322261Z	info	ads	SDS: PUSH request for node:istio-ingressgateway-6785fcd48-h5c5c.istio-system resources:1 size:4.0kB resource:default
+2023-01-07T20:52:22.322286Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.677715334s
+2023-01-07T20:52:22.322358Z	info	ads	SDS: PUSH request for node:istio-ingressgateway-6785fcd48-h5c5c.istio-system resources:1 size:1.1kB resource:ROOTCA
+2023-01-07T20:52:23.485994Z	info	Readiness succeeded in 1.3713055s
+2023-01-07T20:52:23.486227Z	info	Envoy proxy is ready
+

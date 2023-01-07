@@ -1,0 +1,3 @@
+Error [IST0128] (DestinationRule default/httpbin.heapanalytics.dev) DestinationRule default/httpbin.heapanalytics.dev in namespace default has TLS mode set to SIMPLE but no caCertificates are set to validate server identity for host: httpbin.heapanalytics.dev
+Error [IST0128] (DestinationRule default/httpbin.org) DestinationRule default/httpbin.org in namespace default has TLS mode set to SIMPLE but no caCertificates are set to validate server identity for host: httpbin.org
+Info [IST0102] (Namespace default) The namespace is not enabled for Istio injection. Run 'kubectl label namespace default istio-injection=enabled' to enable it, or 'kubectl label namespace default istio-injection=disabled' to explicitly mark it as not needing injection.
