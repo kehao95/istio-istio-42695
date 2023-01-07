@@ -4,17 +4,27 @@
 create cluster
 ```bash
 kind create cluster
-istio install -y
+istioctl install -y
 kubectl apply -k .
 ```
 port-forward to test VirtualServices
-`kubectl port-forward -n istio-system svc/istio-ingressgateway 9000:80`
+```
+kubectl port-forward -n istio-system svc/istio-ingressgateway 9000:80
+```
 
 
-## testing virtual-services
+## testing VirtualService & ExternalSerivce
+```
+# brew install httpie
+http get localhost:9000/ Host:podinfo.localhost
+http get localhost:9000/ip Host:httpbin-org.localhost
+http get localhost:9000/anything Host:httpbin-heap.localhost
+```
+
+
 **podinfo works**
 ```bash
-# brew install httpie
+
 > http get localhost:9000/ Host:podinfo.localhost
 HTTP/1.1 200 OK
 ...
@@ -42,5 +52,5 @@ externalService to `httpbin.org`
 ```bash
 > http get localhost:9000/anything Host:httpbin-heap.localhost
 HTTP/1.1 404 Not Found
-\
+
 ```
