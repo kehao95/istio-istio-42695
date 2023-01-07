@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -75,3 +76,44 @@ spec:
             requests:
               cpu: 100m
               memory: 64Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: demo-podinfo
+  name: podinfo
+  namespace: default
+spec:
+  ports:
+    - name: http
+      port: 9898
+      protocol: TCP
+      targetPort: http
+    - name: grpc
+      port: 9999
+      protocol: TCP
+      targetPort: grpc
+  selector:
+    app: podinfo
+  type: ClusterIP
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: podinfo
+spec:
+  gateways:
+  - istio-system/cluster-gateway
+  - mesh
+  hosts:
+  - podinfo.localhost
+  http:
+  - name: podinfo
+    route:
+    - destination:
+        host: podinfo
+        port:
+          number: 9898

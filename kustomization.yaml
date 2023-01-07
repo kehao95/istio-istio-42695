@@ -1,5 +1,5 @@
 resources:
-  - podinfo
   - gateway.yaml
+  - podinfo.yaml
   - httpbin-org.yaml
   - httpbin-heap.yaml
