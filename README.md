@@ -51,7 +51,7 @@ HTTP/1.1 200 OK
 ```
 
 **httpbin-heap not working**
-externalService to `httpbin.org`
+externalService to `httpbin.heapanalytics.dev`
 
 ```bash
 > http get localhost:9000/anything Host:httpbin-heap.localhost
