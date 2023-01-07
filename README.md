@@ -1,6 +1,10 @@
 # README
 ## setup test env with kind
-
+clone repo
+```
+git clone https://github.com/kehao95/istio-istio-42695.git
+cd istio-istio-42695
+```
 create cluster
 ```bash
 kind create cluster
