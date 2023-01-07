@@ -1,0 +1,47 @@
+# and exact same ServiceEntry for httpbin.heapanalytics.dev 
+---
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: httpbin.heapanalytics.dev
+spec:
+  hosts:
+  - httpbin.heapanalytics.dev
+  location: MESH_EXTERNAL
+  ports:
+  - name: HTTPS
+    number: 443
+    protocol: TLS
+  resolution: DNS
+
+# and exact same DestinationRule for httpbin.heapanalytics.dev 
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: httpbin.heapanalytics.dev
+spec:
+  host: httpbin.heapanalytics.dev
+  trafficPolicy:
+    tls:
+      mode: SIMPLE
+      sni: httpbin.heapanalytics.dev
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: httpbin.heapanalytics.dev
+spec:
+  gateways:
+  - istio-system/cluster-gateway
+  - mesh
+  hosts:
+  - httpbin-heap.localhost
+  http:
+  - name: heap-only
+    route:
+    - destination:
+        host: httpbin.heapanalytics.dev
+        port:
+          number: 443
